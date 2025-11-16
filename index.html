@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微信 - 社交软件</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 登录页面 -->
+    <div id="login-page" class="page active">
+        <div class="login-container">
+            <div class="logo">
+                <i class="fab fa-weixin"></i>
+                <h1>微信</h1>
+            </div>
+            <form id="login-form">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="用户名" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="密码" required>
+                </div>
+                <button type="submit" class="login-btn">登录</button>
+                <div class="register-link">
+                    <a href="#" id="register-link">注册新账号</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 注册页面 -->
+    <div id="register-page" class="page">
+        <div class="register-container">
+            <div class="back-btn" id="back-to-login">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="logo">
+                <i class="fab fa-weixin"></i>
+                <h1>注册账号</h1>
+            </div>
+            <form id="register-form">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="reg-username" placeholder="用户名" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="reg-email" placeholder="邮箱" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="reg-password" placeholder="密码" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="reg-confirm-password" placeholder="确认密码" required>
+                </div>
+                <button type="submit" class="register-btn">注册</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 主界面 -->
+    <div id="main-page" class="page">
+        <!-- 顶部导航栏 -->
+        <div class="top-nav">
+            <div class="nav-left">
+                <span id="current-user">用户</span>
+            </div>
+            <div class="nav-right">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-plus"></i>
+            </div>
+        </div>
+
+        <!-- 底部标签栏 -->
+        <div class="bottom-tabs">
+            <div class="tab active" data-tab="chat">
+                <i class="fas fa-comment"></i>
+                <span>微信</span>
+            </div>
+            <div class="tab" data-tab="contacts">
+                <i class="fas fa-address-book"></i>
+                <span>通讯录</span>
+            </div>
+            <div class="tab" data-tab="discover">
+                <i class="fas fa-compass"></i>
+                <span>发现</span>
+            </div>
+            <div class="tab" data-tab="me">
+                <i class="fas fa-user"></i>
+                <span>我</span>
+            </div>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="content-area">
+            <!-- 聊天页面 -->
+            <div id="chat-tab" class="tab-content active">
+                <div class="chat-list">
+                    <!-- 聊天列表项将通过JS动态生成 -->
+                </div>
+            </div>
+
+            <!-- 通讯录页面 -->
+            <div id="contacts-tab" class="tab-content">
+                <div class="contacts-list">
+                    <div class="contact-section">
+                        <div class="contact-item">
+                            <div class="contact-avatar">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-name">新的朋友</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-avatar">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-name">群聊</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-avatar">
+                                <i class="fas fa-tag"></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-name">标签</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-avatar">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-name">公众号</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <!-- 联系人列表将通过JS动态生成 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 发现页面 -->
+            <div id="discover-tab" class="tab-content">
+                <div class="discover-list">
+                    <div class="discover-item" id="open-moments">
+                        <i class="fas fa-compass"></i>
+                        <span>朋友圈</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="discover-item">
+                        <i class="fas fa-qrcode"></i>
+                        <span>扫一扫</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="discover-item" id="search-users">
+                        <i class="fas fa-search"></i>
+                        <span>搜一搜</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="discover-item">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>购物</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="discover-item">
+                        <i class="fas fa-gamepad"></i>
+                        <span>游戏</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 我的页面 -->
+            <div id="me-tab" class="tab-content">
+                <div class="profile-section">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="profile-info">
+                            <span class="profile-name" id="profile-name">用户名</span>
+                            <span class="profile-id">微信号: wechat123</span>
+                        </div>
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                </div>
+                <div class="menu-section">
+                    <div class="menu-item">
+                        <i class="fas fa-wallet"></i>
+                        <span>支付</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-images"></i>
+                        <span>收藏</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-folder"></i>
+                        <span>相册</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-credit-card"></i>
+                        <span>卡包</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-face-smile"></i>
+                        <span>表情</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                <div class="menu-section">
+                    <div class="menu-item">
+                        <i class="fas fa-gear"></i>
+                        <span>设置</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 聊天窗口 -->
+    <div id="chat-window" class="page">
+        <div class="chat-header">
+            <div class="back-btn" id="back-to-main">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="chat-contact-info">
+                <span id="chat-contact-name">联系人</span>
+            </div>
+            <div class="chat-actions">
+                <i class="fas fa-ellipsis-v"></i>
+            </div>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <!-- 聊天消息将通过JS动态生成 -->
+        </div>
+        <div class="chat-input">
+            <div class="input-actions">
+                <i class="fas fa-smile"></i>
+                <i class="fas fa-plus"></i>
+            </div>
+            <input type="text" id="message-input" placeholder="输入消息...">
+            <button id="send-btn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 朋友圈页面 -->
+    <div id="moments-page" class="page">
+        <div class="moments-header">
+            <div class="back-btn" id="back-to-discover">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <span>朋友圈</span>
+        </div>
+        <div class="moments-content">
+            <div class="moments-banner">
+                <div class="banner-bg"></div>
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span id="moments-username">用户名</span>
+                </div>
+            </div>
+            <div class="moments-list" id="moments-list">
+                <!-- 朋友圈动态将通过JS动态生成 -->
+            </div>
+            <div class="post-moment">
+                <button id="post-moment-btn">
+                    <i class="fas fa-camera"></i>
+                    <span>发表朋友圈</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 发表朋友圈页面 -->
+    <div id="post-moment-page" class="page">
+        <div class="post-header">
+            <div class="back-btn" id="back-to-moments">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <span>发表朋友圈</span>
+            <button id="publish-btn">发表</button>
+        </div>
+        <div class="post-content">
+            <textarea id="moment-content" placeholder="分享新鲜事..."></textarea>
+            <div class="image-upload">
+                <i class="fas fa-camera"></i>
+                <span>添加图片</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 搜索用户页面 -->
+    <div id="search-users-page" class="page">
+        <div class="search-header">
+            <div class="back-btn" id="back-to-discover-search">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="user-search-input" placeholder="搜索用户ID或昵称">
+            </div>
+        </div>
+        <div class="search-results" id="search-results">
+            <!-- 搜索结果将通过JS动态生成 -->
+        </div>
+    </div>
+
+    <!-- 好友申请页面 -->
+    <div id="friend-requests-page" class="page">
+        <div class="requests-header">
+            <div class="back-btn" id="back-to-contacts">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <span>新的朋友</span>
+        </div>
+        <div class="requests-content">
+            <div class="add-friend-section">
+                <input type="text" id="friend-id-input" placeholder="微信号/手机号">
+                <button id="search-friend-btn">搜索</button>
+            </div>
+            <div class="requests-list" id="requests-list">
+                <!-- 好友申请列表将通过JS动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 用户详情页面 -->
+    <div id="user-profile-page" class="page">
+        <div class="profile-header">
+            <div class="back-btn" id="back-to-search">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <span>详细资料</span>
+        </div>
+        <div class="profile-content">
+            <div class="user-info-section">
+                <div class="user-avatar-large">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <span id="profile-user-name">用户名</span>
+                    <span id="profile-user-id">微信号: wechat123</span>
+                </div>
+            </div>
+            <div class="action-section">
+                <button id="add-friend-btn" class="add-friend-btn">
+                    <i class="fas fa-user-plus"></i>
+                    <span>添加到通讯录</span>
+                </button>
+            </div>
+            <div class="info-section">
+                <div class="info-item">
+                    <span>地区</span>
+                    <span id="profile-region">中国</span>
+                </div>
+                <div class="info-item">
+                    <span>个性签名</span>
+                    <span id="profile-signature">这个人很懒，什么都没有留下</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
